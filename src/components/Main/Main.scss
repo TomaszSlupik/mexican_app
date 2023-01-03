@@ -1,0 +1,44 @@
+.main {
+    position: relative;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+    &__box {
+        position: relative;
+        width: 80%;
+        min-height: 300px;
+        background-color: #fff;
+        border-radius: 8px;
+        &-header {
+            font-weight: bold;
+            color: black;
+            font-size: 1.5rem;
+            margin: 0.2em 0em;
+            margin-left: 1em;
+            font-family: 'Montserrat', sans-serif;
+        }
+        &-nav {
+            margin-left: 1em;
+        }
+        &-price {
+            color: gold;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 1em;
+            margin-top: 0.2em;
+            font-size: 1.5rem;
+            
+        }
+        &-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-right: 0.4em;
+           
+        }
+    }
+}

@@ -1,0 +1,79 @@
+.headerbox {
+    position: relative;
+    width: 100vw;
+    height: 100%;
+    &__img {
+        position: relative;
+        width: 100vw;
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+        background-image: url('./../../../public/img/tomatoes_640.jpg');
+        display: flex;
+        justify-content: center;
+        &-wrapper {
+        position: relative;
+        width: 60%;
+        min-height: 200px;
+        border-radius: 8px;
+        border: 2px solid black;
+        background-color: #383941;
+        box-shadow: 7px 9px 16px 7px black;
+        margin-top: 15em;
+        &--text {
+            font-size: 1.4rem;
+            color: #fff;
+            text-align: center;
+            margin: 0.2em 0em;
+            
+        }
+        &--nav {
+            font-size: 1rem;
+            margin: 0em 0.8em;
+            text-align: justify;
+        }
+    }
+    }
+}
+
+@media (min-width: 576px) {
+    .headerbox {
+    &__img {
+        background-image: url('./../../../public/img/tomatoes_1920.jpg');
+        &-wrapper {
+            &--text {
+                font-size: 1.8rem;
+                color: #fff;
+                text-align: center;
+                margin: 0.2em 0em;
+            }
+            &--nav {
+                font-size: 1.4rem;
+            }
+    }
+}   
+}}
+
+
+@media (min-width: 992px) {
+    .headerbox {
+    &__img {
+        &-wrapper {
+            &--text {
+                font-size: 2.4rem;
+                color: #fff;
+                text-align: center;
+                margin: 0.2em 0em;
+            }
+            &--nav {
+                font-size: 1.8rem;
+            }
+    }
+}   
+}}
+
+
+
+
+
+        

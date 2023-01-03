@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name_dish": "Burito",
+        "ingredients": "mięsa mielonego wołowe, ok. 200g ryżu., kukurydza z puszki, fasola czerwona z puszki, pomidory, papryka czerwona i zielona, cebula, 4 duże tortille",
+        "price": 10, 
+        "count": 0
+    },
+    {
+        "id": 2,
+        "name_dish": "Quesadilla",
+        "ingredients": "kurczak, papryka, kukurydza, mozzarella, 4 duże tortille",
+        "price": 22, 
+        "count": 0    
+    }
+]

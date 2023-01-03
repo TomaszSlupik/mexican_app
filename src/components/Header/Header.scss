@@ -1,0 +1,25 @@
+.header {
+    position: relative;
+    width: 100vw;
+    height: 70px;
+    background-color: #305c6c;
+    display: flex;
+    align-items: center;
+    &__text {
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 300;
+        margin-left: 2em;
+        padding: 0.2em 0.4em;
+        font-size: 1rem;
+    }
+
+}
+
+@media (min-width: 576px) {
+    .header {
+        &__text {
+            font-size: 1.5rem;
+           
+        }}
+}

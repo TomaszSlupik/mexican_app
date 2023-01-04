@@ -9,7 +9,7 @@ function App() {
     <div>
         <ThemeProvider
         theme={theme}>
-        <Header />
+       
         <Main />
         </ThemeProvider>
     </div>

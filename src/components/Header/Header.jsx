@@ -6,7 +6,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import Headerbox from '../Headerbox/Headerbox';
-
+import Total from '../Total/Total';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -14,7 +14,14 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 
-export default function Header() {
+
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
+
+export default function Header({meal, totalmeal}) {
 
 
   const style = {
@@ -31,21 +38,15 @@ export default function Header() {
     },
   }));
 
-
-  const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-  });
-  
     const [open, setOpen] = useState(false);
   
     const handleClickOpen = () => {
       setOpen(true);
     };
-  
+
     const handleClose = () => {
       setOpen(false);
     };
-
 
 
   return (
@@ -53,21 +54,23 @@ export default function Header() {
         <div className="header">
             <div className="header__text">Mexican Meals</div>
             <div className="header__btn">
-              <button onClick={handleClickOpen}>sdasdasdsad</button>
             <div>
             <Button 
             style={style.btn} variant="contained"
+            onClick={handleClickOpen}
             >
-              
+            <div>
             <IconButton aria-label="cart" style={style.bin}>
               <StyledBadge badgeContent={12} color="secondary">
                 <ShoppingCartIcon />
               </StyledBadge>
             </IconButton>
+            </div>
             
               Twoja karta
             </Button>
-              <div>
+
+            <div>
               <Dialog
                 open={open}
                 TransitionComponent={Transition}
@@ -75,23 +78,25 @@ export default function Header() {
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
               >
-                <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+                <DialogTitle>{"Twoje zamówienie"}</DialogTitle>
                 <DialogContent>
                   <DialogContentText id="alert-dialog-slide-description">
-                    Let Google help apps determine location. This means sending anonymous
-                    location data to Google, even when no apps are running.
+                         
                   </DialogContentText>
                 </DialogContent>
+                <Total meal={meal} totalmeal={totalmeal}/>
                 <DialogActions>
                   <Button onClick={handleClose}>Anuluj</Button>
                   <Button onClick={handleClose}>Zamawiam</Button>
                 </DialogActions>
               </Dialog>
               </div>
+            
               </div>
             </div>
         </div>
         <Headerbox />
+        
     </div>
   )
 }

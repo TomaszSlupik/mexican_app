@@ -5,22 +5,46 @@ import Meal from './../../data/data.json'
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
+import Total from '../Total/Total';
+import Header from '../Header/Header';
+
 
 export default function Main() {
 
     const [meal, setMeal] = useState(Meal)
-    const [countMeal, setCountMeal] = useState(1)
+    const [countMealBurito, setCountMeal] = useState(0)
+    const [countMealQuesadilla, setCountMealQuesadilla] = useState(0)
 
-    const addcount = (id) => {    
-        if ([...meal].map(el => el.id) === id) {
-            setCountMeal(countMeal + 1)
+
+    const [totalmeal, setTotalMeal] = useState([])
+
+    const addcount = (id) => { 
+        if (id === 1) {
+            setCountMeal(countMealBurito + 1)
+        }
+        else if (id === 2) {
+            setCountMealQuesadilla(countMealQuesadilla + 1)
         }
         
-        console.log(countMeal)
+        const copymeal = [...meal]
+
+        const clickmeal = copymeal.filter(el => el.id === id)
+        const clickmealname = clickmeal.map (el => el.name_dish)
         
+        console.log(clickmealname)
+        if (countMealBurito >= 0) {
+            totalmeal.push(clickmealname)
+        }
+        console.log(totalmeal)
     }
+
+    const subtractcount = (id) => { 
+        setCountMeal(countMealBurito - 1)
+    }
+
   return (
     <div>
+         <Header meal={meal} totalmeal={totalmeal}/>
         <div className="main">
             <div className="main__box">
                 {
@@ -33,14 +57,14 @@ export default function Main() {
                         <div className='main__box-price'>{el.price} zł</div>
                         <div className="main__box-wrapper">
                         <RestaurantIcon />
-                        <div>{countMeal}</div>
+                        {el.id === 1 ? (< Button/>) :  1}
                         <ButtonGroup
                         disableElevation
                         variant="contained"
                         aria-label="Disabled elevation buttons"
                         >
                         <Button
-                        
+                        onClick={() => subtractcount()}
                         >-</Button>
                         <Button
                         onClick={() => addcount(el.id)}
@@ -49,12 +73,14 @@ export default function Main() {
                         </div>
                         
                         <Divider />
+                        
                         </div>
                        
                     )
                 })
                 }
-            
+                  <div className="buritto">Ilość:{countMealBurito} </div>
+                  <div className="Quesadilla">Ilość:{countMealQuesadilla} </div>
             </div>
         </div>
     </div>

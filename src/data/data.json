@@ -12,5 +12,32 @@
         "ingredients": "kurczak, papryka, kukurydza, mozzarella, 4 duże tortille",
         "price": 22, 
         "count": 0    
+    }, 
+    {
+        "id": 3,
+        "name_dish": "Guacamole",
+        "ingredients": "awokado, sok z limonki, czosnek,świeża kolendra, cebulę, papryczkę chil lub zwykła",
+        "price": 17, 
+        "count": 0   
+
+    },   
+    {
+        "id": 4,
+        "name_dish": "Chili con carne",
+        "ingredients": "mielona wołowina, passata pomidorowa, czerwona fasola, kukurydza, cebula, czerwona papryka",
+        "price": 25, 
+        "count": 0   
+
+    }, 
+    
+    {
+        "id": 5,
+        "name_dish": "Tacos",
+        "ingredients": "kukurydziana tortilla, mięso wołowe, pomidory, czosnek, cebula",
+        "price": 18, 
+        "count": 0   
+
     }
+    
+
 ]

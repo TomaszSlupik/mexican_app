@@ -21,12 +21,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 
-export default function Header({meal, totalmeal}) {
+export default function Header({meal, totalmeal, totalcount, totalcountprice}) {
 
 
   const style = {
     btn: {position: 'absolute',  top: '12%', right: '2%', marginLeft: '3em'}, 
-    bin: {marginRight: '0.6em'}
+    bin: {marginRight: '0.6em'},
   }
 
   const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -61,7 +61,7 @@ export default function Header({meal, totalmeal}) {
             >
             <div>
             <IconButton aria-label="cart" style={style.bin}>
-              <StyledBadge badgeContent={12} color="secondary">
+              <StyledBadge badgeContent={totalcount} color="secondary">
                 <ShoppingCartIcon />
               </StyledBadge>
             </IconButton>
@@ -84,10 +84,10 @@ export default function Header({meal, totalmeal}) {
                          
                   </DialogContentText>
                 </DialogContent>
-                <Total meal={meal} totalmeal={totalmeal}/>
+                <Total meal={meal} totalmeal={totalmeal} totalcountprice={totalcountprice}/>
                 <DialogActions>
                   <Button onClick={handleClose}>Anuluj</Button>
-                  <Button onClick={handleClose}>Zamawiam</Button>
+                  <Button onClick={handleClose} variant="contained">Zamawiam</Button>
                 </DialogActions>
               </Dialog>
               </div>

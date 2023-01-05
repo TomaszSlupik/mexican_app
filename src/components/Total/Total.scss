@@ -4,5 +4,33 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    
+    justify-content: center;
+   
+    &__dish {
+        position: relative;
+        width: 70%;  
+        display: flex;
+        flex-direction: column;
+        justify-content: center;   
+        margin-left: 1.6em;
+        
+        &-nav {
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            padding: 0.2em 0.7em;
+        }
+        &-meal {
+            padding: 0.2em 0.7em;
+            &--nomeal {
+                color: red;
+            }
+        }
+        &-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            padding: 0.2em 0.7em;
+        }
+    }
 }

@@ -4,21 +4,24 @@
         "name_dish": "Burito",
         "ingredients": "mięsa mielonego wołowe, ok. 200g ryżu., kukurydza z puszki, fasola czerwona z puszki, pomidory, papryka czerwona i zielona, cebula, 4 duże tortille",
         "price": 10, 
-        "count": 0
+        "count": 0, 
+        "picture": "/img/burito.jpg"
     },
     {
         "id": 2,
         "name_dish": "Quesadilla",
         "ingredients": "kurczak, papryka, kukurydza, mozzarella, 4 duże tortille",
         "price": 22, 
-        "count": 0    
+        "count": 0,
+        "picture": "/img/quesadilla.jpg"    
     }, 
     {
         "id": 3,
         "name_dish": "Guacamole",
         "ingredients": "awokado, sok z limonki, czosnek,świeża kolendra, cebulę, papryczkę chil lub zwykła",
         "price": 17, 
-        "count": 0   
+        "count": 0,
+        "picture": "/img/guacamole.jpg"       
 
     },   
     {
@@ -26,7 +29,8 @@
         "name_dish": "Chili con carne",
         "ingredients": "mielona wołowina, passata pomidorowa, czerwona fasola, kukurydza, cebula, czerwona papryka",
         "price": 25, 
-        "count": 0   
+        "count": 0,
+        "picture": "/img/chiliconcarne.jpg"    
 
     }, 
     
@@ -35,8 +39,8 @@
         "name_dish": "Tacos",
         "ingredients": "kukurydziana tortilla, mięso wołowe, pomidory, czosnek, cebula",
         "price": 18, 
-        "count": 0   
-
+        "count": 0, 
+        "picture": "/img/tacos.jpg"   
     }
     
 

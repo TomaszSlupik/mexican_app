@@ -17,9 +17,7 @@ export default function Main() {
 
     const [meal, setMeal] = useState(Meal)
     const [countMealBuritto, setCountMeal] = useState(0)
-    const [priceBuritto, setPriceBuritto] = useState(10)
     const [countMealQuesadilla, setCountMealQuesadilla] = useState(0)
-    const [priceQuesadilla, setPriceQuesadilla] = useState(22)
     const [countMealGuacamole, setCountMealGuacamole] = useState(0)
     const [countMealChiliconcarne, setCountMealChiliconcarne] = useState(0)
     const [countMealTacos, setCountMealTacos] = useState(0)
@@ -30,13 +28,10 @@ export default function Main() {
 
     const addcount = (id) => { 
         if (id === 1) {
-            setCountMeal(countMealBuritto + 1)
-            setPriceBuritto(((countMealBuritto + 1) * 10) + 10)
-            
+            setCountMeal(countMealBuritto + 1)  
         }
         else if (id === 2) {
             setCountMealQuesadilla(countMealQuesadilla + 1)
-            setPriceQuesadilla(((countMealQuesadilla + 1) * 22) + 22)
         }
         else if (id === 3) {
             setCountMealGuacamole(countMealGuacamole + 1)
@@ -65,6 +60,21 @@ export default function Main() {
     const subtractcount = (id) => { 
         if (id === 1) {
             setCountMeal(countMealBuritto - 1)
+            
+        console.log(id)
+        const newArr = [...totalmeal]
+        const allItem = newArr.filter (el => el.id !== id)
+        console.log(allItem)
+
+            const totalmeal_tostring = totalmeal.toString()
+            const arraywithtotalmeal = totalmeal_tostring.split(",")
+
+            // function filterItems(arr, query) {
+            //     return arr.filter((el) => el.includes(query.toLowerCase()));
+            //   }
+            //   filterItems(arraywithtotalmeal, "Burito")
+            //   console.log(arraywithtotalmeal)
+
         }
         else if (id === 2) {
             setCountMealQuesadilla(countMealQuesadilla - 1)
@@ -79,13 +89,14 @@ export default function Main() {
             setCountMealTacos(countMealTacos - 1)
         }
 
-        if (countMealBuritto < 2 || countMealQuesadilla < 2 || countMealGuacamole < 2 || countMealChiliconcarne <2 || countMealTacos <2) {
-            setDisabled(true)
-        }
-        else if (countMealBuritto >= 0 || countMealQuesadilla >= 0 || countMealGuacamole >=0 || countMealChiliconcarne >=0 || countMealTacos >=0) {
-            setDisabled(false)
-        }
-        totalmeal.pop()
+        // if (countMealBuritto < 2 || countMealQuesadilla < 2 || countMealGuacamole < 2 || countMealChiliconcarne <2 || countMealTacos <2) {
+        //     setDisabled(true)
+        // }
+        // else if (countMealBuritto >= 0 || countMealQuesadilla >= 0 || countMealGuacamole >=0 || countMealChiliconcarne >=0 || countMealTacos >=0) {
+        //     setDisabled(false)
+        // }
+        console.log(totalmeal)
+       
         countallMeal()
         countallTotalPrice()
     }
@@ -95,20 +106,23 @@ export default function Main() {
     }
 
     const countallTotalPrice = () => {
-        const task = totalmeal.toString()
-        const task2 = task.split(",")
-        const task3 = {}
+        const totalmeal_tostring = totalmeal.toString()
+        const arraywithtotalmeal = totalmeal_tostring.split(",")
+        const objectmealtotal = {}
 
-        task2.forEach(el => {
-            task3[el] = (task3[el] || 0) + 1;
+
+        arraywithtotalmeal.forEach(el => {
+            objectmealtotal[el] = (objectmealtotal[el] || 0) + 1;
         })
 
-        let Burito = task3.Burito * 10
-        let Quesadilla = task3.Quesadilla * 22
-
-        console.log(Burito)
-        console.log(Quesadilla)
-        setTotalCountPrice (Burito + Quesadilla)  
+        let Burito = (objectmealtotal.Burito || 0 ) * 10
+        let Quesadilla = (objectmealtotal.Quesadilla || 0) * 22
+        let Guacamole = (objectmealtotal.Guacamole || 0) * 17
+        let Chiliconcarne = (objectmealtotal["Chili con carne"] || 0) * 25
+        let Tacos = (objectmealtotal.Tacos || 0) * 18
+       console.log(arraywithtotalmeal)
+       
+        setTotalCountPrice (Burito + Quesadilla + Guacamole + Chiliconcarne + Tacos)  
     }
 
     const style = {
@@ -126,6 +140,11 @@ export default function Main() {
                        
                         <div key={el.id}>
                         <div className="main__box-header">{el.name_dish}</div>
+                        <div className='main__box-img'>
+                            
+                                <img className="main__box-img--picture" src={process.env.PUBLIC_URL + el.picture} alt="Burito - danie meksykańskie"/>
+                           
+                        </div>
                         <div className="main__box-nav">{el.ingredients}</div>
                         <div className='main__box-price'>{el.price} zł</div>
                         <div className="main__box-wrapper">

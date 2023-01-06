@@ -20,7 +20,7 @@ export default function Headerbox() {
         options={{
           height: 20,
           amplitude: 20,
-          speed: 0.15,
+          speed: 0.25,
           points: 3
         }}
         />

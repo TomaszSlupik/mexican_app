@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React, {useState } from 'react'
 import './Main.scss'
 import { Divider } from '@mui/material'
 import Meal from './../../data/data.json'
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
-import Total from '../Total/Total';
 import Header from '../Header/Header';
 import Buritto from '../Meal/Buritto';
 import Quesadilla from '../Meal/Quesadilla';
@@ -22,9 +21,28 @@ export default function Main() {
     const [countMealChiliconcarne, setCountMealChiliconcarne] = useState(0)
     const [countMealTacos, setCountMealTacos] = useState(0)
     const [totalcount, setTotalCount] = useState("0")
-    const [disabled, setDisabled] = useState(false)
     const [totalmeal, setTotalMeal] = useState([])
     const [totalcountprice, setTotalCountPrice] = useState("0")
+  
+        const subtractcount = (id) => { 
+        if (id === 1) {
+            setCountMeal(countMealBuritto - 1)
+        }
+        else if (id === 2) {
+            setCountMealQuesadilla(countMealQuesadilla - 1) 
+        }
+        else if (id === 3) {
+            setCountMealGuacamole(countMealGuacamole - 1)
+        }
+        else if (id === 4) {
+            setCountMealChiliconcarne(countMealChiliconcarne - 1)
+        }
+        else if (id === 5) {
+            setCountMealTacos(countMealTacos - 1)
+        }
+        countallMeal()
+    }
+
 
     const addcount = (id) => { 
         if (id === 1) {
@@ -57,59 +75,16 @@ export default function Main() {
         countallTotalPrice()
     }
 
-    const subtractcount = (id) => { 
-        if (id === 1) {
-            setCountMeal(countMealBuritto - 1)
-            
-        console.log(id)
-        const newArr = [...totalmeal]
-        const allItem = newArr.filter (el => el.id !== id)
-        console.log(allItem)
-
-            const totalmeal_tostring = totalmeal.toString()
-            const arraywithtotalmeal = totalmeal_tostring.split(",")
-
-            // function filterItems(arr, query) {
-            //     return arr.filter((el) => el.includes(query.toLowerCase()));
-            //   }
-            //   filterItems(arraywithtotalmeal, "Burito")
-            //   console.log(arraywithtotalmeal)
-
-        }
-        else if (id === 2) {
-            setCountMealQuesadilla(countMealQuesadilla - 1)
-        }
-        else if (id === 3) {
-            setCountMealGuacamole(countMealGuacamole - 1)
-        }
-        else if (id === 4) {
-            setCountMealChiliconcarne(countMealChiliconcarne - 1)
-        }
-        else if (id === 5) {
-            setCountMealTacos(countMealTacos - 1)
-        }
-
-        // if (countMealBuritto < 2 || countMealQuesadilla < 2 || countMealGuacamole < 2 || countMealChiliconcarne <2 || countMealTacos <2) {
-        //     setDisabled(true)
-        // }
-        // else if (countMealBuritto >= 0 || countMealQuesadilla >= 0 || countMealGuacamole >=0 || countMealChiliconcarne >=0 || countMealTacos >=0) {
-        //     setDisabled(false)
-        // }
-        console.log(totalmeal)
-       
-        countallMeal()
-        countallTotalPrice()
-    }
 
     const countallMeal = () => {
         setTotalCount(totalmeal.length)
+       
     }
 
     const countallTotalPrice = () => {
         const totalmeal_tostring = totalmeal.toString()
         const arraywithtotalmeal = totalmeal_tostring.split(",")
         const objectmealtotal = {}
-
 
         arraywithtotalmeal.forEach(el => {
             objectmealtotal[el] = (objectmealtotal[el] || 0) + 1;
@@ -119,9 +94,7 @@ export default function Main() {
         let Quesadilla = (objectmealtotal.Quesadilla || 0) * 22
         let Guacamole = (objectmealtotal.Guacamole || 0) * 17
         let Chiliconcarne = (objectmealtotal["Chili con carne"] || 0) * 25
-        let Tacos = (objectmealtotal.Tacos || 0) * 18
-       console.log(arraywithtotalmeal)
-       
+        let Tacos = (objectmealtotal.Tacos || 0) * 18  
         setTotalCountPrice (Burito + Quesadilla + Guacamole + Chiliconcarne + Tacos)  
     }
 
@@ -165,7 +138,6 @@ export default function Main() {
                         aria-label="Disabled elevation buttons"
                         >
                         <Button
-                        disabled={disabled}
                         onClick={() => subtractcount(el.id)}
                         >-</Button>
                         <Button
